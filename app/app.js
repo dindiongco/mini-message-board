@@ -1,7 +1,24 @@
-const express = require("express");
-const app = express();
+const express = require('express')
+const nunjucks = require('nunjucks')
+const routes = require('./routes');
+const path = require('path');
+const PORT = process.env.PORT || 3000;
 
-app.get("/", (req, res) => res.send("Hello, world!"));
+var app = express()
 
-const PORT = 3000;
-app.listen(PORT, () => console.log(`Listening on port ${PORT}!`));
+nunjucks.configure(path.join(__dirname, 'views'),  {
+  autoescape: true,
+  express: app
+})
+
+app.set('view engine', 'html')
+
+// Static files
+// app.use(express.static(path.join(__dirname, 'public')));
+
+// Use routes
+app.use('/', routes);
+
+app.listen(PORT, () => {
+  console.log(`Listening on port ${PORT}...`)
+})
