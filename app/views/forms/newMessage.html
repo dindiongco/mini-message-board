@@ -1,0 +1,18 @@
+{% extends 'layouts/main.html' %}
+
+{% block content %}
+<div class="form-container">
+    <form method="POST" action="/new">
+        <div class="flex-group">
+            <label for="newMessage">Message:</label>
+            <textarea name="newMessage" id="newMessage" rows="4" cols="50"></textarea>
+        </div>
+        <div class="flex-group">
+            <label for="newUser">User</label>
+            <input type="text" id="user" name="newUser">
+        </div>
+        <button>Submit</button>
+    </form>
+</div>
+    
+{% endblock %}

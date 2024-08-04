@@ -14,7 +14,8 @@ nunjucks.configure(path.join(__dirname, 'views'),  {
 app.set('view engine', 'html')
 
 // Static files
-// app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.static(path.join(__dirname, 'public')));
+app.use(express.urlencoded({ extended: true }));
 
 // Use routes
 app.use('/', routes);

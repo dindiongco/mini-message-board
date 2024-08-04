@@ -1,6 +1,19 @@
 {% extends 'layouts/main.html' %}
 
 {% block content %}
-    <h1>Welcome to the Home Page</h1>
-    <p>This is a simple Express application using Nunjucks.</p>
+    <h1>Welcome to the Message Board</h1>
+
+    {% for message in messages %}
+    <div class="card">
+        <div class="container">
+          <h4><b>{{message.user}}</b></h4>
+          <p>{{message.text}}</p>
+          <p>{{message.added}}</p>
+        </div>
+      </div>
+      {% endfor %}
+
+    
+
+
 {% endblock %}
